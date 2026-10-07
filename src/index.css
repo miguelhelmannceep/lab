@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --lab-bg: #090a0f;
+    --lab-surface: #12141c;
+    --lab-surface-elevated: #181b26;
+    --lab-border: rgba(255, 255, 255, 0.08);
+    --lab-border-hover: rgba(255, 255, 255, 0.16);
+    --lab-text: #f3f4f6;
+    --lab-muted: #9ca3af;
+    --lab-subtle: #6b7280;
+    --lab-accent: #f59e0b;
+    --lab-accent-glow: rgba(245, 158, 11, 0.15);
+  }
+
+  html.light {
+    --lab-bg: #f8fafc;
+    --lab-surface: #ffffff;
+    --lab-surface-elevated: #f1f5f9;
+    --lab-border: rgba(0, 0, 0, 0.08);
+    --lab-border-hover: rgba(0, 0, 0, 0.16);
+    --lab-text: #0f172a;
+    --lab-muted: #475569;
+    --lab-subtle: #94a3b8;
+    --lab-accent: #d97706;
+    --lab-accent-glow: rgba(217, 119, 6, 0.15);
+  }
+
+  body {
+    background-color: var(--lab-bg);
+    color: var(--lab-text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+/* Subtle grid pattern for the lab canvas */
+.lab-grid-bg {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.light .lab-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Dynamic Live Preview Canvas root variables */
+.preview-theme-scope {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: background-color 240ms cubic-bezier(0.16, 1, 0.3, 1), color 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preview-theme-scope h1,
+.preview-theme-scope h2,
+.preview-theme-scope h3,
+.preview-theme-scope h4,
+.preview-theme-scope .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: var(--letter-spacing);
+  line-height: var(--line-height);
+  font-weight: var(--heading-weight, 700);
+}
+
+.preview-theme-scope p,
+.preview-theme-scope span,
+.preview-theme-scope div,
+.preview-theme-scope .font-body {
+  font-family: var(--font-body);
+}
+
+/* Subtle transitions for swatches and controls */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
